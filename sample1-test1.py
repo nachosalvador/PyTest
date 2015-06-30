@@ -1,6 +1,9 @@
 # -*- coding: utf-8 -*-
 
+import unittest
 from math import factorial
-
-def test_factorial():
-    assert( factorial(3) == 6 )
+ 
+class TestUM(unittest.TestCase):
+ 
+    def test_factorial(self):
+        self.assertEqual( factorial(3), 6)

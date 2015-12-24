@@ -15,7 +15,7 @@ class TestFizzBuzz:
         self.fizzbuzz = FizzBuzz()
  
     def test_number_three_is_fizz(self):
-        assert self.fizzbuzz.get(1) != 'fizz', "Number 1 is 1"
+        assert self.fizzbuzz.get(1) == 1, "Number 1 is 1"
         assert self.fizzbuzz.get(3) == 'fizz', "Number 3 is fizz"
         assert self.fizzbuzz.get(33) == 'fizz', "Number 33 is fizz"
 

@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 class FizzBuzz:
     """ 
     The FizzBuzz Game Class.

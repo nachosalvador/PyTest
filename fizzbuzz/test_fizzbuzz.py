@@ -1,29 +1,61 @@
+# -*- coding: utf-8 -*-
+
 """ 
 ----------------------- GAME RULES ----------------------------
-1. A number is fizz if it is divisible by 3.
-2. A number is buzz if it is divisible by 5.
-3. A number is fizzbuzz if it is divisible by 3 and 5.
+1. A number is fizz if it is divisible by three.
+2. A number is buzz if it is divisible by five.
+3. A number is fizzbuzz if it is divisible by three and five.
 
-Use: py.test test_fizzbuzz.py
+Use: python test_fizzbuzz.py
 """
 
-from fizzbuzz import FizzBuzz
 import unittest
+from fizzbuzz import FizzBuzz
 
 class TestFizzBuzz(unittest.TestCase):
 
     def setUp(self):
         self.fizzbuzz = FizzBuzz()
  
-    def test_number_three_is_fizz(self):
-        self.assertEquals(self.fizzbuzz.get(1), 1, 'Number 1 is 1')
-        self.assertEquals(self.fizzbuzz.get(3), 'fizz', 'Number 3 is "fizz"')
-        self.assertEquals(self.fizzbuzz.get(33), 'fizz', 'Number 33 is "fizz"')
+    def test_no_fizzbuzz_numbers(self):
+        no_fizzbuzz_numbers = [1, 19, 32]
 
-    def test_number_five_is_buzz(self):
-        self.assertEquals(self.fizzbuzz.get(5), 'buzz', 'Number 5 is "buzz"')
-        self.assertEquals(self.fizzbuzz.get(20), 'buzz', 'Number 20 is "buzz"')
+        for number in no_fizzbuzz_numbers:
+            self.assertEquals(
+                self.fizzbuzz.get(number),
+                number,
+                'Number ' + str(number) + ' is ' + str(number)
+                )
 
-    def test_number_three_and_five_is_fizzbuzz(self):
-        self.assertEquals(self.fizzbuzz.get(15), 'fizzbuzz', 'Number 15 is "fizzbuzz"')
-        self.assertEquals(self.fizzbuzz.get(30), 'fizzbuzz', 'Number 20 is "fizzbuzz"')
+    def test_number_divisible_by_three_is_fizz(self):
+        fizz_numbers = [3, 9, 33]
+
+        for number in fizz_numbers:
+            self.assertEquals(
+                self.fizzbuzz.get(number),
+                'fizz',
+                'Number ' + str(number) + ' is "fizz"'
+                )
+
+    def test_number_divisible_by_five_is_buzz(self):
+        buzz_numbers = [5, 10, 25]
+
+        for number in buzz_numbers:
+            self.assertEquals(
+                self.fizzbuzz.get(number),
+                'buzz',
+                'Number ' + str(number) + ' is "buzz"'
+                )
+
+    def test_number_divisble_by_three_and_five_is_fizzbuzz(self):
+        fizzbuzz_numbers = [15, 30, 45]
+
+        for number in fizzbuzz_numbers:
+            self.assertEquals(
+                self.fizzbuzz.get(number),
+                'fizzbuzz',
+                'Number ' + str(number) + ' is "fizzbuzz"'
+                )
+
+if __name__ == '__main__':
+    unittest.main()
